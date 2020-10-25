@@ -1,6 +1,8 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {useSelector, useDispatch} from "react-redux";
 
+import {projectsObj} from "./data/projects";
+
 import styles from './Main.module.scss';
 
 const Main = () => {
@@ -61,8 +63,11 @@ const Main = () => {
                 style={{"height": `${state.windowHeight}px`}}
                 ref={stickySection}
             >
-                <p>{state.windowHeight}</p>
-                <p>{state.progress}</p>
+                <div className={styles['-title-box']}>
+                    <h1>PotLid's Recent Projects</h1>
+                    <p>Screen Height {state.windowHeight}</p>
+                    <p>Scroll Progress {state.progress}</p>
+                </div>
             </section>
         </div>
     )

@@ -7,6 +7,9 @@
 }
 
 .-sticky-box {
+  background-image: url("./images/cooler.png");
+  background-repeat: no-repeat;
+  background-position: top center;
   box-sizing: border-box;
   position: sticky;
   width: 100%;
@@ -17,14 +20,33 @@
   @include tempStickyLine;
 }
 
-@media only screen and (min-width: 0px) and (max-width: $MOBILE_MAX_WIDTH) {
+.-title-box {
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 
+@media only screen and (min-width: 0px) and (max-width: $MOBILE_MAX_WIDTH) {
+  .-sticky-box {
+    //background-size: cover;
+  }
 }
 
 @media only screen and (min-width: $TABLET_MIN_WIDTH) and (max-width: $TABLET_MAX_WIDTH) {
-
+  .-sticky-box {
+    //background-size: cover;
+  }
 }
 
 @media only screen and (min-width: $PC_MIN_WIDTH) {
-
+  .-sticky-box {
+    //background-position: top center;
+    //background-size: cover;
+  }
+  .-title-box {
+    max-width: 400px;
+    top: 500px;
+  }
 }
