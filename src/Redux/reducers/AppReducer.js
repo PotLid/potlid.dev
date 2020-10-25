@@ -1,9 +1,12 @@
-import {APP_LOADED, APP_LOADING, PAGE_TRANSITION_START, PAGE_TRANSITION_END} from "../constants/ActionTypes";
+import {APP_LOADED, APP_LOADING, PAGE_TRANSITION_START, PAGE_TRANSITION_END,
+        HEADER_ACTIVE, HEADER_INACTIVE,
+} from "../constants/ActionTypes";
 
 const initialState = {
     isAppLoading: false,
     isAppLoaded: false,
     isPageTransitioning: false,
+    isHeaderActive: false,
 }
 
 const app = (state = initialState, action) => {
@@ -29,6 +32,16 @@ const app = (state = initialState, action) => {
             return {
                 ...state,
                 isPageTransitioning: false,
+            }
+        case HEADER_ACTIVE:
+            return {
+                ...state,
+                isHeaderActive: true,
+            }
+        case HEADER_INACTIVE:
+            return {
+                ...state,
+                isHeaderActive: false,
             }
         default:
             return state

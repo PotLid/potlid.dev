@@ -6,6 +6,10 @@ $TABLET_MAX_WIDTH: 1279px;
 //$TABLET_MIN_HEIGHT: 768px;
 $MOBILE_MIN_WIDTH: 320px;
 $MOBILE_MAX_WIDTH: 1023px;
+// Z-INDEX
+$FOOTER_IDX: 1;
+$HEADER_IDX: 10;
+$CLICK_PREVENT: 1000;
 // Font Weight
 $Thin: 100;
 $Light: 300;
@@ -25,4 +29,12 @@ $APP_COL_01: #3C3C3C;
 // Keywords
 @mixin marginZero {
   margin: 0 auto;
+}
+
+// TEST PURPOSE
+@mixin tempFooterLine {
+  border: 1px dashed red;
+}
+@mixin tempHeaderLine {
+  border: 1px dashed blue;
 }
