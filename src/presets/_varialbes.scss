@@ -1,0 +1,19 @@
+// Screen Breakpoints
+$PC_MAX_WIDTH: 1600px;
+$PC_MIN_WIDTH: 1280px;
+$TABLET_MIN_WIDTH: 1024px;
+$TABLET_MAX_WIDTH: 1279px;
+//$TABLET_MIN_HEIGHT: 768px;
+$MOBILE_MIN_WIDTH: 320px;
+$MOBILE_MAX_WIDTH: 1023px;
+// Font Weight
+$Thin: 100;
+$Light: 300;
+$Regular: 400;
+$Medium: 500;
+$Bold: 700;
+$Black: 900;
+// Keywords
+@mixin marginZero {
+  margin: 0 auto;
+}

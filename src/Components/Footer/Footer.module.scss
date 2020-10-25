@@ -1,0 +1,64 @@
+@import './src/presets/varialbes';
+// Footer Base
+.-footer-base {
+  width: 100%;
+}
+// Section Icon
+.-section-icon {
+  @include marginZero;
+  max-width: 90%;
+}
+// Icon Box
+.-icons-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include marginZero;
+
+  & > a {
+    display: block;
+    min-width: 30px;
+    min-height: 30px;
+    transition: .3s ease all;
+  }
+
+  & > a:hover {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+
+  & img {
+    height: 100%;
+  }
+}
+// Section Copyright
+.-section-cr {
+  @include marginZero;
+
+  & > p {
+    text-align: center;
+    font-weight: $Thin;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: $MOBILE_MAX_WIDTH) {
+
+}
+
+@media only screen and (min-width: $TABLET_MIN_WIDTH) and (max-width: $TABLET_MAX_WIDTH) {
+
+}
+
+@media only screen and (min-width: $PC_MIN_WIDTH) {
+  .-section-icon {
+    max-width: $PC_MAX_WIDTH;
+  }
+
+  .-icons-box {
+    max-width: 360px;
+    & > a {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
