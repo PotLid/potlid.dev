@@ -1,6 +1,19 @@
 @import './src/presets/varialbes';
 .-main-base {
+  min-width: $MOBILE_MIN_WIDTH;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+}
 
+.-sticky-box {
+  box-sizing: border-box;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  // TEST
+  @include tempStickyLine;
 }
 
 @media only screen and (min-width: 0px) and (max-width: $MOBILE_MAX_WIDTH) {

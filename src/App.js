@@ -2,12 +2,17 @@ import React, {useEffect, useCallback} from 'react';
 import {useSelector, useDispatch} from "react-redux";
 import {BrowserRouter, Switch, Redirect} from "react-router-dom";
 
+import {action_app_loaded, action_app_loading} from "./Redux/actions/AppActions";
+
+// Style
 import styles from './App.module.scss';
 
+// UI Elements
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
+import Main from "./Components/Main/Main";
 
-import {action_app_loaded, action_app_loading} from "./Redux/actions/AppActions";
+// Pages
 
 const App = () => {
     const stableDispatch = useCallback(useDispatch(), []);
@@ -22,7 +27,7 @@ const App = () => {
     return (
         <div className="App">
             <Header/>
-            <p>{isHeaderActive.toString()}</p>
+            <Main />
             <Footer/>
         </div>
     );
