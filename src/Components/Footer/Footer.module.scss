@@ -1,0 +1,124 @@
+@import './src/presets/varialbes';
+// Footer Base
+.-footer-base {
+  background-color: $APP_BG_03;
+  box-sizing: border-box;
+  min-width: $MOBILE_MIN_WIDTH;
+  width: 100%;
+  z-index: $FOOTER_IDX;
+  // TEST
+  @include tempFooterLine;
+}
+
+// Section Icon
+.-section-icon {
+  @include marginZero;
+  max-width: 90%;
+}
+
+// Icon Box
+.-icons-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include marginZero;
+
+  & > a {
+    display: block;
+    min-width: 30px;
+    min-height: 30px;
+    transition: .3s ease all;
+  }
+
+  & > a:hover {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+
+  & img {
+    height: 100%;
+  }
+}
+
+// Section Copyright
+.-section-cr {
+  @include marginZero;
+  max-width: 90%;
+
+  & > p {
+    color: $APP_COL_01;
+    text-align: center;
+    font-weight: $Thin;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: $MOBILE_MAX_WIDTH) {
+  .-footer-base {
+    padding: 20px 0;
+  }
+  .-section-icon {
+    margin-bottom: 14px;
+  }
+  .-icons-box {
+    max-width: 280px;
+
+    & > a {
+      width: 44px;
+      height: 44px;
+    }
+  }
+  .-section-cr {
+    & > p {
+      font-size: $MOBILE_SUB;
+    }
+  }
+}
+
+@media only screen and (min-width: $TABLET_MIN_WIDTH) and (max-width: $TABLET_MAX_WIDTH) {
+  .-footer-base {
+    padding: 40px 0;
+  }
+  .-section-icon {
+    margin-bottom: 18px;
+  }
+  .-icons-box {
+    max-width: 320px;
+
+    & > a {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .-section-cr {
+    & > p {
+      font-size: $TABLET_SUB;
+    }
+  }
+}
+
+@media only screen and (min-width: $PC_MIN_WIDTH) {
+  .-footer-base {
+    padding: 60px 0;
+  }
+  .-section-icon {
+    margin-bottom: 20px;
+  }
+  .-section-icon,
+  .-section-cr {
+    max-width: $PC_MAX_WIDTH;
+  }
+
+  .-icons-box {
+    max-width: 360px;
+
+    & > a {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  .-section-cr {
+    & > p {
+      font-size: $PC_SUB;
+    }
+  }
+}

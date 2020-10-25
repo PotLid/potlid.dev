@@ -1,0 +1,46 @@
+// Screen Breakpoints
+$PC_MAX_WIDTH: 1600px;
+$PC_MIN_WIDTH: 1280px;
+$TABLET_MIN_WIDTH: 1024px;
+$TABLET_MAX_WIDTH: 1279px;
+//$TABLET_MIN_HEIGHT: 768px;
+$MOBILE_MIN_WIDTH: 320px;
+$MOBILE_MAX_WIDTH: 1023px;
+// Z-INDEX
+$FOOTER_IDX: 1;
+$HEADER_IDX: 10;
+$CLICK_PREVENT: 1000;
+// Font Weight
+$Thin: 100;
+$Light: 300;
+$Regular: 400;
+$Medium: 500;
+$Bold: 700;
+$Black: 900;
+// Font Size
+// PC
+$PC_SUB: 16px;
+// TABLET
+$TABLET_SUB: 16px;
+// MOBILE
+$MOBILE_SUB: 12px;
+// Color Palette
+$APP_COL_01: #3C3C3C;
+$APP_BG_01: #CDCED0;
+$APP_BG_02: #CCCCCE;
+$APP_BG_03: #ececec;
+// Keywords
+@mixin marginZero {
+  margin: 0 auto;
+}
+
+// TEST PURPOSE
+@mixin tempFooterLine {
+  border: 1px dashed red;
+}
+@mixin tempHeaderLine {
+  border: 1px dashed blue;
+}
+@mixin tempStickyLine {
+  border: 2px dashed grey;
+}
