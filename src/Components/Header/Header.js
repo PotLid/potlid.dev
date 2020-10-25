@@ -11,17 +11,20 @@ const Header = () => {
     const dispatch = useDispatch();
 
     return (
-        <header className={isHeaderActive ? styles['-header-base-active'] : styles['-header-base']}>
-            <div className={styles['-header-inactive-box']}>
-                <input
-                    type={"button"}
-                    onClick={isHeaderActive ? () => dispatch(action_header_inactive()) : () => dispatch(action_header_active())}
-                />
-            </div>
-            <nav className={styles['-header-nav']}>
+        <>
+            <header className={isHeaderActive ? styles['-header-base-active'] : styles['-header-base']}>
+                <div className={styles['-header-inactive-box']}>
+                    <input
+                        type={"button"}
+                        onClick={isHeaderActive ? () => dispatch(action_header_inactive()) : () => dispatch(action_header_active())}
+                    />
+                </div>
+                <nav className={styles['-header-nav']}>
 
-            </nav>
-        </header>
+                </nav>
+            </header>
+            <section className={styles['-header-padding']} />
+        </>
     )
 }
 

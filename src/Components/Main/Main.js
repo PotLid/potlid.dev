@@ -8,6 +8,7 @@ const Main = () => {
     const initialState = {
         progress: 0,
         chapters: 5,
+        chaptersSub: 4, // chapters - 1
         windowHeight: window.innerHeight,
     }
 
@@ -18,24 +19,24 @@ const Main = () => {
 
     // Add resizing also tracks the progress
     const updateWindowHeight = () => {
-        const {chapters} = state;
+        const {chaptersSub} = state;
         if (!stickySection || !stickyContainer) return;
         const container = stickyContainer.current;
         setState(prevState => ({
             ...prevState,
             windowHeight: window.innerHeight,
-            progress: container.getBoundingClientRect().top * -1 / (chapters * window.innerHeight),
+            progress: container.getBoundingClientRect().top * -1 / (chaptersSub * window.innerHeight),
         }))
     }
 
     const updateScrollProgress = () => {
-        const {windowHeight, chapters} = state;
+        const {windowHeight, chaptersSub} = state;
         if (!stickySection || !stickyContainer) return;
         const container = stickyContainer.current;
         // const progress = container.getBoundingClientRect().top * -1 / (4 * windowHeight);
         setState(prevState => ({
             ...prevState,
-            progress: container.getBoundingClientRect().top * -1 / (chapters * windowHeight),
+            progress: container.getBoundingClientRect().top * -1 / (chaptersSub * windowHeight),
         }))
     }
 

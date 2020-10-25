@@ -21,7 +21,15 @@
 
 }
 
+.-header-padding {
+  width: 100%;
+  min-width: $MOBILE_MIN_WIDTH;
+  box-sizing: border-box;
+  z-index: $FOOTER_IDX; // SAME AS FOOTER
+}
+
 @media only screen and (min-width: 0px) and (max-width: $MOBILE_MAX_WIDTH) {
+  .-header-padding,
   .-header-base,
   .-header-base-active {
     height: 36px;
@@ -29,6 +37,7 @@
 }
 
 @media only screen and (min-width: $TABLET_MIN_WIDTH) and (max-width: $TABLET_MAX_WIDTH) {
+  .-header-padding,
   .-header-base,
   .-header-base-active {
     height: 40px;
@@ -36,6 +45,7 @@
 }
 
 @media only screen and (min-width: $PC_MIN_WIDTH) {
+  .-header-padding,
   .-header-base,
   .-header-base-active {
     height: 48px;
