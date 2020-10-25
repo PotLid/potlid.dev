@@ -13,6 +13,15 @@ $Regular: 400;
 $Medium: 500;
 $Bold: 700;
 $Black: 900;
+// Font Size
+// PC
+$PC_SUB: 16px;
+// TABLET
+$TABLET_SUB: 16px;
+// MOBILE
+$MOBILE_SUB: 12px;
+// Color Palette
+$APP_COL_01: #3C3C3C;
 // Keywords
 @mixin marginZero {
   margin: 0 auto;
