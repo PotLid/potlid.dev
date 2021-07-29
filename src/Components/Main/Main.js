@@ -32,13 +32,13 @@ const Main = () => {
     }
 
     const updateScrollProgress = () => {
-        const {windowHeight, chaptersSub} = state;
+        const {chaptersSub} = state;
         if (!stickySection || !stickyContainer) return;
         const container = stickyContainer.current;
         // const progress = container.getBoundingClientRect().top * -1 / (4 * windowHeight);
         setState(prevState => ({
             ...prevState,
-            progress: container.getBoundingClientRect().top * -1 / (chaptersSub * windowHeight),
+            progress: container.getBoundingClientRect().top * -1 / (chaptersSub * window.innerHeight),
         }))
     }
 
@@ -55,7 +55,7 @@ const Main = () => {
     return (
         <div
             className={styles['-main-base']}
-            style={{"height": `${state.windowHeight * 5}px`}}
+            style={{"height": `${state.windowHeight * state.chapters}px`}}
             ref={stickyContainer}
         >
             <section

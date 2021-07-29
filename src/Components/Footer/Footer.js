@@ -23,7 +23,7 @@ const Footer = () => {
             </section>
             {/*Copyright notification*/}
             <section className={styles['-section-cr']}>
-                <p>Copyright © 2020 Junwoo Park, All rights reserved.</p>
+                <p>Copyright © 2020-2021 Junwoo Park, All rights reserved.</p>
             </section>
         </footer>
     )
