@@ -12,7 +12,6 @@ const Footer = () => {
 
     return (
         <footer className={styles['-footer-base']}>
-            {/*Social Media Redirects*/}
             <section className={styles['-section-icon']}>
                 <div className={styles['-icons-box']}>
                     <a href={"https://github.com/PotLid"}><img src={gh_logo} alt={"github icon"} /></a>
@@ -21,7 +20,6 @@ const Footer = () => {
                     <a href={"https://www.instagram.com/potlid27/"}><img src={ig_logo} alt={"instagram icon"} /></a>
                 </div>
             </section>
-            {/*Copyright notification*/}
             <section className={styles['-section-cr']}>
                 <p>Copyright © 2020-2021 Junwoo Park, All rights reserved.</p>
             </section>
