@@ -17,7 +17,7 @@ const Footer = () => {
                     <a href={"https://github.com/PotLid"}><img src={gh_logo} alt={"github icon"} /></a>
                     <a href={"https://www.linkedin.com/in/junwoo-park-2b55a6178/"}><img src={li_logo} alt={"linkedin icon"} /></a>
                     <a href={"https://www.facebook.com/profile.php?id=100002916788386"}><img src={fb_logo} alt={"facebook icon"} /></a>
-                    <a href={"https://www.instagram.com/potlid27/"}><img src={ig_logo} alt={"instagram icon"} /></a>
+                    <a href={"https://www.instagram.com/playnpluck/"}><img src={ig_logo} alt={"instagram icon"} /></a>
                 </div>
             </section>
             <section className={styles['-section-cr']}>
