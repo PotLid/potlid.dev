@@ -1,0 +1,991 @@
+// import predefined sets
+@import '../../presets/common';
+
+// variables
+$header-hide-idx: -10;
+$header-z-idx: 5;
+$header-menu-idx: 6;
+$header-btn-idx: 8;
+$header-btn-click-idx: 9;
+/* HTML, BODY */
+html, body {
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+}
+
+.--dd-header-freezeScroll {
+  overflow-y: hidden;
+}
+
+/* Touch Class */
+// allowing rules when there is no touch event fired
+// simply env without touch input (still as long as touch events get fired header will detect it)
+.dd-header-no-touch {
+
+}
+
+/* Header */
+// common Settings
+.dd-header,
+.dd-header-wrap {
+  box-sizing: border-box;
+  margin: $marginZero;
+}
+
+// Header Foundation
+.dd-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  visibility: visible;
+  opacity: 1;
+
+  min-width: $mobile-min;
+
+  width: 100%;
+  height: auto;
+
+  //z-index: $header-z-idx;
+  z-index: 7;
+  -webkit-transition: visibility .36s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .36s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: visibility .36s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .36s cubic-bezier(0.32, 0.08, 0.24, 1);
+}
+
+// When Header is on Active state
+.dd-header.--dd-header-active {
+
+}
+
+// When It's away from the top position
+.dd-header.--dd-away-onscroll {
+
+}
+
+// When it's get scroll down Hide the Header
+.dd-header.--dd-hide-onscroll {
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: visibility .36s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .36s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: visibility .36s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .36s cubic-bezier(0.32, 0.08, 0.24, 1);
+}
+// When the header hide option is off
+.dd-header.--dd-hide-default {
+
+}
+/* Header Background */
+.dd-header-bg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  -webkit-transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), -webkit-backdrop-filter .4s linear;
+  transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), backdrop-filter .4s linear;
+}
+
+// When header is away from the top, show the background
+.dd-header.--dd-away-onscroll.--dd-header-bg-init .dd-header-bg {
+  background: rgba(255, 255, 255, 0.84);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  -webkit-transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), -webkit-backdrop-filter .4s linear;
+  transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), backdrop-filter .4s linear;
+}
+
+.dd-header.--dd-away-onscroll.--dd-hide-onscroll .dd-header-bg {
+  background: rgba(255, 255, 255, 0);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  -webkit-transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), -webkit-backdrop-filter .4s linear;
+  transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), backdrop-filter .4s linear;
+}
+// background is under the default settings
+.dd-header.--dd-hide-default .dd-header-bg {
+  background: rgba(255, 255, 255, 0.84);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+/* Nav Section */
+// Nav Wrapper
+.dd-header-wrap {
+  position: relative;
+  width: 90%;
+  //display: block; // fall-back
+  display: flex;
+  //justify-content: space-between;
+}
+
+/* Header Logo Section */
+// Logo Wrapper
+.dd-logo-wrap {
+  opacity: 1;
+  -webkit-transition: opacity .2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: opacity .2s cubic-bezier(0.32, 0.08, 0.24, 1);
+}
+
+// hide when the menu is active state
+.dd-header.--dd-header-active .dd-logo-wrap {
+  opacity: 0;
+}
+
+.dd-logo-wrap,
+.dd-logo-wrap img,
+.dd-logo-wrap a {
+  display: block;
+  height: 100%;
+  width: auto;
+  left: 0;
+  //-webkit-transition: $transition3sEase;
+  //transition: $transition3sEase;
+}
+
+@keyframes ddLogoHover {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+  //50% {-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+  75% {
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+// Not Active during touch event
+/* Using With JS for robust experience */
+//.dd-logo-wrap a:hover,
+.dd-header-no-touch .dd-logo-wrap img:hover {
+  -webkit-animation-name: ddLogoHover;
+  animation-name: ddLogoHover;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  //-webkit-animation-delay: .3s;
+  //animation-delay: .3s;
+}
+
+/* Header Menu Section */
+
+.dd-header-menu {
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  // dev
+  max-height: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  -webkit-transition: background .44s cubic-bezier(0.52, 0.16, 0.24, 1), -webkit-backdrop-filter .2s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1) .3s;
+  transition: background .44s cubic-bezier(0.52, 0.16, 0.24, 1), backdrop-filter .2s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1) .3s;
+
+  /* When Clicked, Change z-idx first (add loading first)
+     then, add active class
+     remove loading class
+
+     When CLicked, Keep Prev Z-index by adding loading (add loading first)
+     then, remove active class
+     remove loading class
+   */
+  z-index: $header-hide-idx; // -10
+  //z-index: $header-menu-idx; // 6
+}
+
+.dd-header-menu.--dd-header-loading {
+  z-index: $header-menu-idx; // 6
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+}
+
+.dd-header-menu.--dd-header-active {
+  height: 100%;
+  z-index: $header-menu-idx; // 6
+  overflow-y: auto; // enable scroll
+  // dev
+  background: rgba(255, 255, 255, 0.84);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  -webkit-transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), -webkit-backdrop-filter .2s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1);
+  transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), backdrop-filter .2s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1);
+}
+
+// menu top padding
+.dd-header-menu-padding {
+  display: block;
+  width: 100%;
+}
+
+// menu
+.dd-header-menu-list {
+  //display: block;
+  width: 90%;
+  box-sizing: border-box;
+  pointer-events: none;
+  //height: auto;
+  //padding: 20px 5% 8px 5%;
+  margin: $marginZero;
+
+  //overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  visibility: hidden;
+  -webkit-transition: visibility 0s linear 1s;
+  transition: visibility 0s linear 1s;
+
+  z-index: $header-hide-idx;
+  // dev
+  display: flex; // for hover on sub title
+  flex-direction: column;
+  //align-items: flex-start;
+  align-items: center;
+  padding: 5%;
+  // temp
+  //border: 1px solid red;
+}
+// menu anchor tags settings
+.dd-header-menu-list a {
+  text-decoration: none;
+  color: $dd-color-03;
+}
+.dd-header-menu-list a:link,
+.dd-header-menu-list a:visited,
+.dd-header-menu-list a:active {
+  color: inherit;
+}
+// menu --- active state
+.dd-header-menu.--dd-header-active .dd-header-menu-list {
+  height: auto;
+  visibility: visible;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+
+  z-index: $header-menu-idx;
+  pointer-events: auto;
+  // dev
+  //padding: 5%;
+}
+
+// menu logo
+.dd-menu-logo-wrap {
+  display: block;
+  margin: $marginZero;
+
+  opacity: 0;
+  pointer-events: none;
+  text-decoration: none;
+
+  -webkit-transform: translateY(-30px);
+  transform: translateY(-30px);
+
+  -webkit-transition: opacity .3s cubic-bezier(0.52, 0.16, 0.52, 0.84) .15s, -webkit-transform .4669s cubic-bezier(0.52, 0.16, 0.52, 0.84) .108s;
+  transition: opacity .3s cubic-bezier(0.52, 0.16, 0.52, 0.84) .15s, transform .4669s cubic-bezier(0.52, 0.16, 0.52, 0.84) .108s;
+  // dev
+  height: auto;
+}
+
+// menu logo --- active state
+.dd-header-menu.--dd-header-active .dd-menu-logo-wrap {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: none;
+  transform: none;
+
+  -webkit-transition: opacity .3s cubic-bezier(032, 0.08, 0.24, 1) .3s, -webkit-transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .3s;
+  transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .3s, transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .3s;
+}
+
+.dd-menu-logo-wrap a {
+  outline: none;
+}
+
+.dd-menu-logo-wrap img {
+  width: 100%;
+  height: auto;
+}
+
+.dd-header-no-touch .dd-menu-logo-wrap img:hover {
+  -webkit-animation-name: ddLogoHover;
+  animation-name: ddLogoHover;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+// menu items
+.dd-header-menu-item {
+  //display: block;
+  box-sizing: border-box;
+  //margin-right: 100%;
+  //margin-left: 0;
+  //width: 100%;
+  pointer-events: none;
+  text-decoration: none;
+  color: $dd-color-01;
+
+  // dev
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  //opacity: 0;
+  //temp
+  //height: 44px;
+  //border: 1px solid red;
+}
+// menu items --- active
+.dd-header-menu.--dd-header-active .dd-header-menu-item {
+  pointer-events: auto;
+
+  //opacity: 1;
+  //-webkit-transform: none;
+  //transform: none;
+}
+// menu items anchor tags (category titles)
+.dd-header-menu-item-wrap {
+  display: inline-block;
+  margin: $marginZero;
+  position: relative;
+
+  pointer-events: none;
+  opacity: 0;
+
+  -webkit-transform: translateY(-20px);
+  transform: translateY(-20px);
+}
+.dd-header-menu-item:nth-child(2) .dd-header-menu-item-wrap {
+  -webkit-transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .2s, -webkit-transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .2s;
+  transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .2s, transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .2s;
+}
+.dd-header-menu.--dd-header-active .dd-header-menu-item:nth-child(2) .dd-header-menu-item-wrap{
+
+  -webkit-transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .5s, -webkit-transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .6s;
+  transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .5s, transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .6s;
+}
+.dd-header-menu-item:nth-child(3) .dd-header-menu-item-wrap {
+  -webkit-transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .1s, -webkit-transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .1s;
+  transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .1s, transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .1s;
+}
+.dd-header-menu.--dd-header-active .dd-header-menu-item:nth-child(3) .dd-header-menu-item-wrap{
+  -webkit-transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .7s, -webkit-transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .63s;
+  transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .7s, transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .63s;
+}
+.dd-header-menu-item:nth-child(4) .dd-header-menu-item-wrap {
+  -webkit-transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) 0s, -webkit-transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) 0s;
+  transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) 0s, transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) 0s;
+}
+.dd-header-menu.--dd-header-active .dd-header-menu-item:nth-child(4) .dd-header-menu-item-wrap{
+
+  -webkit-transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .9s, -webkit-transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) 66s;
+  transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .9s, transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .66s;
+}
+// menu items anchor tags --- active state
+.dd-header-menu.--dd-header-active .dd-header-menu-item-wrap {
+
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: none;
+  transform: none;
+
+}
+.dd-header-menu-item-wrap > a {
+  //display: inline-block;
+  position: relative;
+  font-weight: 600;
+}
+.dd-header-menu-item-wrap > a:link,
+.dd-header-menu-item-wrap > a:visited,
+.dd-header-menu-item-wrap > a:active {
+
+}
+.dd-header-menu-item-wrap > a::before {
+  content: '';
+  position: absolute;
+  opacity: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: $dd-color-02;
+
+  -webkit-transform: translateX(-70%);
+  transform: translateX(-70%);
+
+  -webkit-transition: width .3s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1), -webkit-transform .2s cubic-bezier(0.32, 0.08, 0.24, 1) .3s;
+  transition: width .3s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1), transform .2s cubic-bezier(0.32, 0.08, 0.24, 1) .3s;
+}
+.dd-header-no-touch .dd-header-menu-item:hover a::before, // without JS dependency, could be better with JS
+.dd-header-no-touch .dd-header-menu-item-wrap:hover > a::before {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+
+  width: 100%;
+
+  -webkit-transition: width .3s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1), -webkit-transform .2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: width .3s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1), transform .2s cubic-bezier(0.32, 0.08, 0.24, 1);
+}
+.dd-header-menu-item-wrap > a.dd-item-active::before {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+
+  width: 100%;
+
+  -webkit-transition: width .3s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .3s, -webkit-transform .2s cubic-bezier(0.32, 0.08, 0.24, 1) .3s;
+  transition: width .3s cubic-bezier(0.32, 0.08, 0.24, 1), opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .3s, transform .2s cubic-bezier(0.32, 0.08, 0.24, 1) .3s;
+}
+// sub-menu
+.dd-header-sub-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+// sub-menu --- active state
+.dd-header-menu.--dd-header-active .dd-header-sub-menu-list {
+
+}
+
+// sub-menu items
+.dd-header-sub-menu-item {
+  pointer-events: none;
+  opacity: 0;
+
+  -webkit-transform: translateX(-30px);
+  transform: translateX(-30px);
+}
+.dd-header-sub-menu-item:nth-child(1) {
+  -webkit-transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .075s, -webkit-transform .075s cubic-bezier(0.32, 0.08, 0.24, 1) .075s;
+  transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .075s, transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .075s;
+}
+.dd-header-menu.--dd-header-active .dd-header-sub-menu-item:nth-child(1) {
+  -webkit-transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .7s, -webkit-transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .63s;
+  transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .7s, transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .63s;
+}
+.dd-header-sub-menu-item:nth-child(2) {
+  -webkit-transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .05s, -webkit-transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .05s;
+  transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .05s, transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .05s;
+}
+.dd-header-menu.--dd-header-active .dd-header-sub-menu-item:nth-child(2) {
+  -webkit-transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .75s, -webkit-transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .68s;
+  transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .75s, transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .68s;
+}
+.dd-header-sub-menu-item:nth-child(3) {
+  -webkit-transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .025s, -webkit-transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .025s;
+  transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .025s, transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .025s;
+}
+.dd-header-menu.--dd-header-active .dd-header-sub-menu-item:nth-child(3) {
+  -webkit-transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .8s, -webkit-transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .73s;
+  transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .8s, transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .73s;
+}
+.dd-header-sub-menu-item:nth-child(4) {
+  -webkit-transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .0s, -webkit-transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .0s;
+  transition: opacity .1s cubic-bezier(0.32, 0.08, 0.24, 1) .0s, transform .15s cubic-bezier(0.32, 0.08, 0.24, 1) .0s;
+}
+.dd-header-menu.--dd-header-active .dd-header-sub-menu-item:nth-child(4) {
+  -webkit-transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .85s, -webkit-transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .78s;
+  transition: opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .85s, transform .5s cubic-bezier(0.32, 0.08, 0.24, 1) .78s;
+}
+// sub-menu items --- active
+.dd-header-menu.--dd-header-active .dd-header-sub-menu-item {
+  opacity: 1;
+  pointer-events: auto;
+
+  -webkit-transform: none;
+  transform: none;
+}
+// sub-menu items anchor tags (sub-category titles)
+.dd-header-sub-menu-item > a{
+  display: inline-block;
+  font-weight: 400;
+
+  //-webkit-transform: none;
+  //transform: none;
+
+  //-webkit-transition: color .2s ease .15s, -webkit-transform .3s cubic-bezier(0.32, 0.08, 0.24, 1);
+  //transition: color .2s ease .15s, transform .3s cubic-bezier(0.32, 0.08, 0.24, 1);
+
+  -webkit-transition: color .2s ease, -webkit-transform .3s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: color .2s ease, transform .3s cubic-bezier(0.32, 0.08, 0.24, 1);
+}
+.dd-header-sub-menu-item > a:link,
+.dd-header-sub-menu-item > a:visited,
+.dd-header-sub-menu-item > a:active {
+
+}
+.dd-header-sub-menu-item > a.dd-sub-item-active {
+  color: $dd-color-02;
+}
+@keyframes ddSubMenuItemTwitching {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+  //50% {-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+  75% {
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+.dd-header-no-touch .dd-header-sub-menu-item > a:hover {
+  -webkit-animation-name: ddSubMenuItemTwitching;
+  animation-name: ddSubMenuItemTwitching;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  color: $dd-color-02;
+  //-webkit-transform: translateX(30px);
+  //transform: translateX(30px);
+
+  -webkit-transition: color .2s ease .15s, -webkit-transform .3s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: color .2s ease .15s, transform .3s cubic-bezier(0.32, 0.08, 0.24, 1);
+}
+
+// temp code blocks !IMPORTANT! trim/clean/remove later!!!!
+.dd-header-menu-item:nth-child(1) {
+  //-webkit-transform: translateY(-44px);
+  //transform: translateY(-44px);
+  //-webkit-transition: opacity .3345s cubic-bezier(0.52, 0.16, 0.52, 0.84) .15s, -webkit-transform .4669s cubic-bezier(0.52, 0.16, 0.52, 0.84) .108s;
+  //transition: opacity .3345s cubic-bezier(0.52, 0.16, 0.52, 0.84) .15s, -webkit-transform .4669s cubic-bezier(0.52, 0.16, 0.52, 0.84) .108s;
+  //transition: opacity .3345s cubic-bezier(0.52, 0.16, 0.52, 0.84) .15s, transform .4669s cubic-bezier(0.52, 0.16, 0.52, 0.84) .108s;
+  //transition: opacity .3345s cubic-bezier(0.52, 0.16, 0.52, 0.84) .15s, transform .4669s cubic-bezier(0.52, 0.16, 0.52, 0.84) .108s, -webkit-transform .4669s cubic-bezier(0.52, 0.16, 0.52, 0.84) .108s;
+  //padding-top: 1px
+
+}
+
+.dd-header-menu-item:nth-child(2) {
+  //-webkit-transform: translateY(-40px);
+  //transform: translateY(-40px);
+  //-webkit-transition: opacity .29294s cubic-bezier(0.52, 0.16, 0.52, 0.84) .13s, -webkit-transform .45043s cubic-bezier(0.52, 0.16, 0.52, 0.84) .095s;
+  //transition: opacity .29294s cubic-bezier(0.52, 0.16, 0.52, 0.84) .13s, -webkit-transform .45043s cubic-bezier(0.52, 0.16, 0.52, 0.84) .095s;
+  //transition: opacity .29294s cubic-bezier(0.52, 0.16, 0.52, 0.84) .13s, transform .45043s cubic-bezier(0.52, 0.16, 0.52, 0.84) .095s;
+  //transition: opacity .29294s cubic-bezier(0.52, 0.16, 0.52, 0.84) .13s, transform .45043s cubic-bezier(0.52, 0.16, 0.52, 0.84) .095s, -webkit-transform .45043s cubic-bezier(0.52, 0.16, 0.52, 0.84) .095s
+
+}
+
+.dd-header-menu-item:nth-child(3) {
+  //-webkit-transform: translateY(-36px);
+  //transform: translateY(-36px);
+  //-webkit-transition: opacity .26098s cubic-bezier(0.52, 0.16, 0.52, 0.84) .11s, -webkit-transform .43756s cubic-bezier(0.52, 0.16, 0.52, 0.84) .082s;
+  //transition: opacity .26098s cubic-bezier(0.52, 0.16, 0.52, 0.84) .11s, -webkit-transform .43756s cubic-bezier(0.52, 0.16, 0.52, 0.84) .082s;
+  //transition: opacity .26098s cubic-bezier(0.52, 0.16, 0.52, 0.84) .11s, transform .43756s cubic-bezier(0.52, 0.16, 0.52, 0.84) .082s;
+  //transition: opacity .26098s cubic-bezier(0.52, 0.16, 0.52, 0.84) .11s, transform .43756s cubic-bezier(0.52, 0.16, 0.52, 0.84) .082s, -webkit-transform .43756s cubic-bezier(0.52, 0.16, 0.52, 0.84) .082s
+
+}
+
+.dd-header-menu.--dd-header-active .dd-header-menu-item:nth-child(1) {
+  //-webkit-transition: opacity .3091s cubic-bezier(0.32, 0.08, 0.24, 1) .03s, -webkit-transform .3455s cubic-bezier(0.32, 0.08, 0.24, 1) .02s;
+  //transition: opacity .3091s cubic-bezier(0.32, 0.08, 0.24, 1) .03s, -webkit-transform .3455s cubic-bezier(0.32, 0.08, 0.24, 1) .02s;
+  //transition: opacity .3091s cubic-bezier(0.32, 0.08, 0.24, 1) .03s, transform .3455s cubic-bezier(0.32, 0.08, 0.24, 1) .02s;
+  //transition: opacity .3091s cubic-bezier(0.32, 0.08, 0.24, 1) .03s, transform .3455s cubic-bezier(0.32, 0.08, 0.24, 1) .02s, -webkit-transform .3455s cubic-bezier(0.32, 0.08, 0.24, 1) .02s
+
+}
+
+.dd-header-menu.--dd-header-active .dd-header-menu-item:nth-child(2) {
+  //-webkit-transition: opacity .32244s cubic-bezier(0.32, 0.08, 0.24, 1) .05s, -webkit-transform .35825s cubic-bezier(0.32, 0.08, 0.24, 1) .04s;
+  //transition: opacity .32244s cubic-bezier(0.32, 0.08, 0.24, 1) .05s, -webkit-transform .35825s cubic-bezier(0.32, 0.08, 0.24, 1) .04s;
+  //transition: opacity .32244s cubic-bezier(0.32, 0.08, 0.24, 1) .05s, transform .35825s cubic-bezier(0.32, 0.08, 0.24, 1) .04s;
+  //transition: opacity .32244s cubic-bezier(0.32, 0.08, 0.24, 1) .05s, transform .35825s cubic-bezier(0.32, 0.08, 0.24, 1) .04s, -webkit-transform .35825s cubic-bezier(0.32, 0.08, 0.24, 1) .04s
+
+}
+
+.dd-header-menu.--dd-header-active .dd-header-menu-item:nth-child(3) {
+  //-webkit-transition: opacity .33467s cubic-bezier(0.32, 0.08, 0.24, 1) .07s, -webkit-transform .37539s cubic-bezier(0.32, 0.08, 0.24, 1) .06s;
+  //transition: opacity .33467s cubic-bezier(0.32, 0.08, 0.24, 1) .07s, -webkit-transform .37539s cubic-bezier(0.32, 0.08, 0.24, 1) .06s;
+  //transition: opacity .33467s cubic-bezier(0.32, 0.08, 0.24, 1) .07s, transform .37539s cubic-bezier(0.32, 0.08, 0.24, 1) .06s;
+  //transition: opacity .33467s cubic-bezier(0.32, 0.08, 0.24, 1) .07s, transform .37539s cubic-bezier(0.32, 0.08, 0.24, 1) .06s, -webkit-transform .37539s cubic-bezier(0.32, 0.08, 0.24, 1) .06s
+
+}
+
+/* Button Section */
+// Button Wrapper
+.dd-header-btn,
+.dd-header-btn-lip,
+.dd-header-btn-span {
+
+}
+
+.dd-header-btn,
+.dd-header-btn-lip {
+
+}
+
+.dd-header-btn {
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  //position: relative;
+  position: absolute;
+  background: transparent;
+  z-index: $header-btn-idx; // 9
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.dd-header-btn-lip,
+.dd-header-btn-span {
+  left: 0;
+  display: block;
+  position: absolute;
+}
+
+.dd-header-btn-lip {
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.dd-header-btn-lip.top {
+  //-webkit-transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  //transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  //transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96), -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  -webkit-transform: none;
+  transform: none;
+}
+
+.dd-header.--dd-header-active .dd-header-btn-lip.top {
+  -webkit-transition: -webkit-transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+  transition: -webkit-transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+  //transition: transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+  transition: transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s, -webkit-transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.dd-header-btn-lip.middle {
+
+}
+
+.dd-header.--dd-header-active .dd-header-btn-lip.middle {
+
+}
+
+.dd-header-btn-lip.bottom {
+  //-webkit-transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  //transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  //transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96), -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  -webkit-transform: none;
+  transform: none;
+}
+
+.dd-header.--dd-header-active .dd-header-btn-lip.bottom {
+  -webkit-transition: -webkit-transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+  transition: -webkit-transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+  //transition: transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+  transition: transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s, -webkit-transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.dd-header-btn-span {
+  background: $dd-color-01;
+}
+
+.dd-header-btn-span.top {
+  -webkit-transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+  transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+  //transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+  transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+}
+
+.dd-header.--dd-header-active .dd-header-btn-span.top {
+  -webkit-transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  //transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96), -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  -webkit-transform: none;
+  transform: none;
+}
+
+.dd-header-btn-span.middle {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: $transition3sEase;
+}
+
+.dd-header.--dd-header-active .dd-header-btn-span.middle {
+  opacity: 0;
+}
+
+.dd-header-btn-span.bottom {
+  -webkit-transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+  transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+  //transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+  transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+}
+
+.dd-header.--dd-header-active .dd-header-btn-span.bottom {
+  -webkit-transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  //transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96), -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  -webkit-transform: none;
+  transform: none;
+}
+
+.dd-header-btn-click {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  cursor: pointer;
+  z-index: $header-btn-click-idx;
+}
+
+// Mobile Settings
+@media only screen and (min-width: $zero) {
+//@media only screen and (min-width: $mobile-min) {
+  .dd-header {
+    padding: 9px 0;
+  }
+  .dd-header-wrap {
+    max-width: $mobile-max;
+    height: 30px;
+  }
+  .dd-header-menu {
+    height: 48px;
+  }
+  .dd-header-menu-padding {
+    //height: 48px;
+    height: 0;
+  }
+  .dd-header-menu-list {
+    max-width: $mobile-max;
+    //height: calc(100% - 48px);
+    min-height: 100%;
+    justify-content: center;
+  }
+  .dd-header-menu.--dd-header-active .dd-header-menu-list {
+    //height: calc(100% - 48px);
+    min-height: 100%;
+  }
+  .dd-menu-logo-wrap {
+    width: 180px;
+    margin-bottom: 15px;
+  }
+  .dd-header-menu-item {
+    width: auto;
+    margin: 12px 0;
+  }
+  .dd-header-menu-item-wrap {
+    margin-bottom: 10px;
+  }
+  .dd-header-menu-item > .dd-header-menu-item-wrap a {
+    font-size: 30px;
+    line-height: 45px;
+  }
+  .dd-header-sub-menu-list {
+
+  }
+  .dd-header-sub-menu-item {
+    margin: 4px 0;
+  }
+  .dd-header-sub-menu-item > a {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .dd-header-btn {
+    height: 30px;
+    width: 30px;
+  }
+  //.dd-header-btn,
+  .dd-header-btn-span {
+    //width: 17px;
+  }
+  .dd-header-btn-span {
+    height: 1px;
+    width: 17px;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dd-header-btn-span.top {
+    top: 14.5px;
+    -webkit-transform: translateY(-7px);
+    transform: translateY(-7px);
+  }
+  .dd-header-btn-span.bottom {
+    bottom: 14.5px;
+    -webkit-transform: translateY(7px);
+    transform: translateY(7px);
+  }
+}
+
+// Tablet Settings
+@media only screen and (min-width: $tablet-min) {
+  .dd-header {
+    padding: 15px 0;
+  }
+  .dd-header-wrap {
+    max-width: $tablet-max;
+    height: 45px;
+  }
+  .dd-header-menu {
+    height: 75px;
+  }
+  .dd-header-menu-padding {
+    //height: 75px;
+    height: 0;
+  }
+  .dd-header-menu-list {
+    max-width: $tablet-max;
+    //height: calc(100% - 75px);
+    min-height: 100%;
+    justify-content: center;
+  }
+  .dd-header-menu.--dd-header-active .dd-header-menu-list {
+    //height: calc(100% - 75px);
+    min-height: 100%;
+  }
+  .dd-menu-logo-wrap {
+    width: 280px;
+    margin-bottom: 20px;
+  }
+  .dd-header-menu-item {
+    width: auto;
+    margin: 16px 0;
+  }
+  .dd-header-menu-item-wrap {
+    margin-bottom: 15px;
+  }
+  .dd-header-menu-item > .dd-header-menu-item-wrap a {
+    font-size: 40px;
+    line-height: 59px;
+  }
+  .dd-header-sub-menu-list {
+
+  }
+  .dd-header-sub-menu-item {
+    margin: 2px 0;
+  }
+  .dd-header-sub-menu-item > a {
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .dd-header-btn {
+    height: 40px;
+  }
+  .dd-header-btn,
+  .dd-header-btn-span {
+    width: 40px;
+  }
+  .dd-header-btn-span {
+    height: 4px;
+  }
+  .dd-header-btn-span.top {
+    top: 17.5px;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+  .dd-header-btn-span.bottom {
+    bottom: 17.5px;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+
+// Desktop(PC) Settings
+@media only screen and (min-width: $pc-min) {
+  .dd-header {
+    padding: 20px 0;
+  }
+  .dd-header-wrap {
+    max-width: $pc-max;
+    height: 50px;
+  }
+  .dd-header-menu {
+    height: 90px;
+  }
+  .dd-header-menu-padding {
+    //height: 90px;
+    height: 0;
+  }
+  .dd-header-menu-list {
+    max-width: $pc-max;
+    //min-height: calc(100% - 90px);
+    min-height: 100%;
+    justify-content: flex-start;
+  }
+  .dd-header-menu.--dd-header-active .dd-header-menu-list {
+    //min-height: calc(100% - 90px);
+    min-height: 100%;
+  }
+  .dd-menu-logo-wrap {
+    width: 490px;
+    margin-bottom: 30px;
+  }
+  .dd-header-menu-item {
+    width: auto;
+    margin: 20px 0;
+  }
+  .dd-header-menu.--dd-header-active .dd-header-menu-item {
+    //transform: translateX(-50%);
+  }
+  .dd-header-menu-item > .dd-header-menu-item-wrap a {
+    font-size: 50px;
+    line-height: 74px;
+  }
+  .dd-header-sub-menu-list {
+
+  }
+  .dd-header-sub-menu-item {
+    margin: 0;
+  }
+  .dd-header-sub-menu-item > a {
+    font-size: 30px;
+    line-height: 45px;
+
+    //margin-left: 20px;
+  }
+  .dd-header-btn {
+    height: 45px;
+  }
+  .dd-header-btn,
+  .dd-header-btn-span {
+    width: 45px;
+  }
+  .dd-header-btn-span {
+    height: 4px;
+  }
+  .dd-header-btn-span.top {
+    top: 20px;
+    -webkit-transform: translateY(-22.5px);
+    transform: translateY(-22.5px);
+  }
+  .dd-header-btn-span.bottom {
+    bottom: 20px;
+    -webkit-transform: translateY(22.5px);
+    transform: translateY(22.5px);
+  }
+}

@@ -1,0 +1,41 @@
+// start with mobile
+$mobile-min: 320px; // iPhone SE
+$mobile-max: 767px; //
+//
+$tablet-min: 768px; // iPad
+$tablet-max: 1279px; //
+//
+$tablet-min-pro: 1024px; // iPad Pro
+//
+$pc-min: 1280px; //
+$pc-max: 1600px; // Max Extendable width
+// zero
+$zero: 0px;
+
+// key words
+$dd-color-01: #335290;
+$dd-color-02: #FCB62C;
+$dd-color-03: #242C3D;
+$dd-color-04: #373737;
+$dd-color-05: #bababa;
+$marginZero: 0 auto;
+$transition3sEase: all .3s ease;
+
+// common Settings
+
+// Mobile Settings
+@media only screen and (min-width: $mobile-min) {
+
+}
+// Tablet Settings
+@media only screen and (min-width: $tablet-min) {
+
+}
+// Tablet Settings (iPad Pro and Bigger Tablet models)
+@media only screen and (min-width: $tablet-min-pro) {
+
+}
+// Desktop(PC) Settings
+@media only screen and (min-width: $pc-min) {
+
+}
