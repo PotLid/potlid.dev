@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react';
+import React from 'react';
 import {useSelector, useDispatch} from "react-redux";
 import {action_header_active, action_header_inactive} from "../../Redux/actions/AppActions";
 
@@ -16,14 +16,17 @@ const Header = () => {
                 <div className={styles['-header-inactive-box']}>
                     <input
                         type={"button"}
-                        onClick={isHeaderActive ? () => dispatch(action_header_inactive()) : () => dispatch(action_header_active())}
+                        onClick={isHeaderActive ?
+                            () => dispatch(action_header_inactive()) :
+                            () => dispatch(action_header_active())
+                        }
                     />
                 </div>
                 <nav className={styles['-header-nav']}>
 
                 </nav>
             </header>
-            <section className={styles['-header-padding']} />
+            <section className={styles['-header-padding']}/>
         </>
     )
 }

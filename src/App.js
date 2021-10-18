@@ -1,6 +1,6 @@
 import React, {useEffect, useCallback} from 'react';
 import {useSelector, useDispatch} from "react-redux";
-import {BrowserRouter, Switch, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Redirect} from "react-router-dom";
 
 import {action_app_loaded, action_app_loading} from "./Redux/actions/AppActions";
 
@@ -8,7 +8,8 @@ import {action_app_loaded, action_app_loading} from "./Redux/actions/AppActions"
 import styles from './App.module.scss';
 
 // UI Elements
-import Header from "./Components/Header/Header";
+// import Header from "./Components/Header/Header";
+import Header from "./Components/DD_Header/Header"
 import Footer from "./Components/Footer/Footer";
 import Main from "./Components/Main/Main";
 
@@ -25,11 +26,14 @@ const App = () => {
     }, []);
 
     return (
-        <div className="App">
-            <Header/>
-            <Main />
-            <Footer/>
-        </div>
+        <Router>
+            <div className="App">
+                {/*<Header/>*/}
+                <Header headerHide={isHeaderActive}/>
+                <Main/>
+                <Footer/>
+            </div>
+        </Router>
     );
 }
 
