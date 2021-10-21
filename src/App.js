@@ -29,7 +29,7 @@ const App = () => {
         <Router>
             <div className="App">
                 {/*<Header/>*/}
-                <Header headerHide={isHeaderActive}/>
+                <Header headerHide={true}/>
                 <Main/>
                 <Footer/>
             </div>

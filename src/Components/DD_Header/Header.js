@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-// React-Router
 import {NavLink, Link, withRouter} from 'react-router-dom';
-// Styles
+import {action_header_active, action_header_inactive} from "../../Redux/actions/AppActions";
+
 // import styles from './Header.scss'
 import './Header.scss';
-// Images
+
 import ddLogo from './images/logo.svg';
 
-// Components
 import ButtonDD from "./ButtonDD";
 
 class Header extends Component {
@@ -178,6 +177,8 @@ class Header extends Component {
 
     // Manage Menu Active state
     menuActiveHandler = () => {
+        const {isHeaderActive} = this.state;
+
         this.setState((prevState) => {
             return {
                 isHeaderActive: !prevState.isHeaderActive,
@@ -271,6 +272,7 @@ class Header extends Component {
         // if menu is active, just skip
         if (isHeaderActive) return;
         const currentTop = (window.pageYOffset || document.documentElement.scrollTop) < 0 ? 0 : window.pageYOffset || document.documentElement.scrollTop;
+        let headerHide = false;
         if (currentTop > lastScrollTop) {
             if (isHeaderHide) {
                 this.setState({
@@ -278,15 +280,18 @@ class Header extends Component {
                 })
                 return;
             }
-            this.setState({
-                isHeaderHide: true,
-            })
+            // this.setState({
+            //     isHeaderHide: true,
+            // })
+            headerHide = true;
         } else if (currentTop < lastScrollTop) {
-            this.setState({
-                isHeaderHide: false,
-            })
+            // this.setState({
+            //     isHeaderHide: false,
+            // })
+            headerHide = false;
         }
         this.setState({
+            isHeaderHide: headerHide,
             lastScrollTop: currentTop,
         })
     }
