@@ -847,12 +847,12 @@ html, body {
     transform: translateY(7px);
   }
 
-  //.--dd-header-active .dd-header-btn-span.top{
-  //  top: calc(50% - 0.09375rem);
-  //}
-  //.--dd-header-active .dd-header-btn-span.bottom {
-  //  bottom: calc(50% - 0.09375rem);
-  //}
+  .--dd-header-active .dd-header-btn-span.top{
+    top: calc(50% - 0.09375rem);
+  }
+  .--dd-header-active .dd-header-btn-span.bottom {
+    bottom: calc(50% - 0.09375rem);
+  }
 }
 
 // Tablet Settings
@@ -930,12 +930,12 @@ html, body {
     transform: translateY(20px);
   }
 
-  //.--dd-header-active .dd-header-btn-span.top{
-  //  top: calc(50% - 0.09375rem);
-  //}
-  //.--dd-header-active .dd-header-btn-span.bottom {
-  //  bottom: calc(50% - 0.09375rem);
-  //}
+  .--dd-header-active .dd-header-btn-span.top{
+    top: calc(50% - 0.09375rem);
+  }
+  .--dd-header-active .dd-header-btn-span.bottom {
+    bottom: calc(50% - 0.09375rem);
+  }
 }
 
 // Desktop(PC) Settings
