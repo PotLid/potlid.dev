@@ -6,9 +6,8 @@ import {action_header_active, action_header_inactive} from "../../Redux/actions/
 // import styles from './Header.scss'
 import './Header.scss';
 
-import ddLogo from './images/logo.svg';
-import headerLogo from './images/potlid_dev_logo_11.svg';
-import menuLogo from './images/potlid_dev_logo_12.svg';
+import headerLogo from './images/potlid_header_logo.svg';
+import menuLogo from './images/potlid_menu_logo.svg';
 
 import ButtonDD from "./ButtonDD";
 
