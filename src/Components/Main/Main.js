@@ -67,6 +67,7 @@ const Main = () => {
                     <h1>PotLid's Recent Projects</h1>
                     <p>Screen Height {state.windowHeight}</p>
                     <p>Scroll Progress {state.progress}</p>
+                    <p>Currently under construction</p>
                 </div>
             </section>
         </div>
