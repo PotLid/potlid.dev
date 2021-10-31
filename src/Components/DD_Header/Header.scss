@@ -762,6 +762,12 @@ html, body {
   cursor: pointer;
   z-index: $header-btn-click-idx;
 }
+// Hover color change
+// Temp
+.dd-header-no-touch .dd-header-btn:hover .dd-header-btn-span{
+  background-color: $dd-color-02;
+  transition: .3s ease;
+}
 
 // Mobile Settings
 @media only screen and (min-width: $zero) {
@@ -831,14 +837,21 @@ html, body {
     margin-right: auto;
   }
   .dd-header-btn-span.top {
-    top: 14.5px;
+    top: 0.90625rem;
     -webkit-transform: translateY(-7px);
     transform: translateY(-7px);
   }
   .dd-header-btn-span.bottom {
-    bottom: 14.5px;
+    bottom: 0.90625rem;
     -webkit-transform: translateY(7px);
     transform: translateY(7px);
+  }
+
+  .--dd-header-active .dd-header-btn-span.top{
+    top: calc(50% - 0.09375rem);
+  }
+  .--dd-header-active .dd-header-btn-span.bottom {
+    bottom: calc(50% - 0.09375rem);
   }
 }
 
@@ -894,24 +907,33 @@ html, body {
     line-height: 36px;
   }
   .dd-header-btn {
-    height: 40px;
+    //height: 40px;
+    height: 1.875rem;
   }
   .dd-header-btn,
   .dd-header-btn-span {
-    width: 40px;
+    width: 2.5rem;
   }
   .dd-header-btn-span {
-    height: 4px;
+    //height: 3px;
+    height: 0.1875rem;
   }
   .dd-header-btn-span.top {
-    top: 17.5px;
+    top: 1.09375rem;
     -webkit-transform: translateY(-20px);
     transform: translateY(-20px);
   }
   .dd-header-btn-span.bottom {
-    bottom: 17.5px;
+    bottom: 1.09375rem;
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
+  }
+
+  .--dd-header-active .dd-header-btn-span.top{
+    top: calc(50% - 0.09375rem);
+  }
+  .--dd-header-active .dd-header-btn-span.bottom {
+    bottom: calc(50% - 0.09375rem);
   }
 }
 
@@ -969,23 +991,33 @@ html, body {
     //margin-left: 20px;
   }
   .dd-header-btn {
-    height: 45px;
+    //height: 45px;
+    height: 1.875rem;
   }
   .dd-header-btn,
   .dd-header-btn-span {
-    width: 45px;
+    //width: 45px;
+    width: 2.8125rem;
   }
   .dd-header-btn-span {
-    height: 4px;
+    //height: 4px;
+    height: 0.1875rem;
   }
   .dd-header-btn-span.top {
-    top: 20px;
+    top: 1.25rem;
     -webkit-transform: translateY(-22.5px);
     transform: translateY(-22.5px);
   }
   .dd-header-btn-span.bottom {
-    bottom: 20px;
+    bottom: 1.25rem;
     -webkit-transform: translateY(22.5px);
     transform: translateY(22.5px);
+  }
+
+  .--dd-header-active .dd-header-btn-span.top{
+    top: calc(50% - 0.09375rem);
+  }
+  .--dd-header-active .dd-header-btn-span.bottom {
+    bottom: calc(50% - 0.09375rem);
   }
 }

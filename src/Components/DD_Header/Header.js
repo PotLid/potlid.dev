@@ -7,6 +7,8 @@ import {action_header_active, action_header_inactive} from "../../Redux/actions/
 import './Header.scss';
 
 import ddLogo from './images/logo.svg';
+import headerLogo from './images/potlid_dev_logo_11.svg';
+import menuLogo from './images/potlid_dev_logo_12.svg';
 
 import ButtonDD from "./ButtonDD";
 
@@ -100,7 +102,7 @@ class Header extends Component {
                     <nav className={"dd-header-wrap"}>
                         <div className={"dd-logo-wrap"}>
                             <Link to={"/"}>
-                                <img src={ddLogo} alt={"dd-header-logo"}/>
+                                <img src={headerLogo} alt={"dd-header-logo"}/>
                             </Link>
                         </div>
                         <ButtonDD onClick={this.menuActiveHandler}/>
@@ -110,7 +112,7 @@ class Header extends Component {
                         <ul className={"dd-header-menu-list"}>
                             <li className={"dd-menu-logo-wrap"}>
                                 <Link to={"/"} onClick={this.menuActiveHandler}>
-                                    <img src={ddLogo} alt={"dd-header-logo in menu opened"}/>
+                                    <img src={menuLogo} alt={"dd-header-logo in menu opened"}/>
                                 </Link>
                             </li>
                             <li className={"dd-header-menu-item"}>
@@ -135,24 +137,24 @@ class Header extends Component {
                                             Web / App
                                         </NavLink>
                                     </li>
-                                    <li className={"dd-header-sub-menu-item"}>
-                                        <NavLink to={"/work/design"} activeClassName={"dd-sub-item-active"}
-                                                 onClick={this.menuActiveHandler}>
-                                            Design
-                                        </NavLink>
-                                    </li>
-                                    <li className={"dd-header-sub-menu-item"}>
-                                        <NavLink to={"/work/video"} activeClassName={"dd-sub-item-active"}
-                                                 onClick={this.menuActiveHandler}>
-                                            Video Promotion
-                                        </NavLink>
-                                    </li>
-                                    <li className={"dd-header-sub-menu-item"}>
-                                        <NavLink to={"/work/marketing"} activeClassName={"dd-sub-item-active"}
-                                                 onClick={this.menuActiveHandler}>
-                                            Marketing
-                                        </NavLink>
-                                    </li>
+                                    {/*<li className={"dd-header-sub-menu-item"}>*/}
+                                    {/*    <NavLink to={"/work/design"} activeClassName={"dd-sub-item-active"}*/}
+                                    {/*             onClick={this.menuActiveHandler}>*/}
+                                    {/*        Design*/}
+                                    {/*    </NavLink>*/}
+                                    {/*</li>*/}
+                                    {/*<li className={"dd-header-sub-menu-item"}>*/}
+                                    {/*    <NavLink to={"/work/video"} activeClassName={"dd-sub-item-active"}*/}
+                                    {/*             onClick={this.menuActiveHandler}>*/}
+                                    {/*        Video Promotion*/}
+                                    {/*    </NavLink>*/}
+                                    {/*</li>*/}
+                                    {/*<li className={"dd-header-sub-menu-item"}>*/}
+                                    {/*    <NavLink to={"/work/marketing"} activeClassName={"dd-sub-item-active"}*/}
+                                    {/*             onClick={this.menuActiveHandler}>*/}
+                                    {/*        Marketing*/}
+                                    {/*    </NavLink>*/}
+                                    {/*</li>*/}
                                 </ul>
                             </li>
                             <li className={"dd-header-menu-item"}>
