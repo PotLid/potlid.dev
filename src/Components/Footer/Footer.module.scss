@@ -1,7 +1,9 @@
 @import './src/presets/varialbes';
+@import './src/presets/common';
 // Footer Base
 .-footer-base {
-  background-color: $APP_BG_03;
+  //background-color: $APP_BG_03;
+  background-color: $dd-color-03;
   box-sizing: border-box;
   min-width: $MOBILE_MIN_WIDTH;
   width: 100%;
@@ -20,7 +22,7 @@
 .-icons-box {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   @include marginZero;
 
   & > a {
@@ -46,7 +48,8 @@
   max-width: 90%;
 
   & > p {
-    color: $APP_COL_01;
+    //color: $APP_COL_01;
+    color: $dd-color-text;
     text-align: center;
     font-weight: $Thin;
   }

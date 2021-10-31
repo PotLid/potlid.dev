@@ -3,10 +3,9 @@ import React from 'react';
 import styles from './Footer.module.scss';
 
 // Icons
-import fb_logo from './images/facebook-114px.png';
-import li_logo from './images/li-in-black.png';
+import li_logo from './images/linkedin-icon-1.svg';
 import gh_logo from './images/github_logo.svg';
-import ig_logo from './images/insta-120px.png';
+import gl_logo from './images/gitlab_logo.svg';
 
 const Footer = () => {
 
@@ -14,8 +13,8 @@ const Footer = () => {
         <footer className={styles['-footer-base']}>
             <section className={styles['-section-icon']}>
                 <div className={styles['-icons-box']}>
-                    {/*<a href={"https://github.com/PotLid"}><img src={gh_logo} alt={"github icon"} /></a>*/}
                     <a href={"https://github.com/PotLid"}><img src={gh_logo} alt={"github icon"} /></a>
+                    <a href={"https://gitlab.com/PotLid"}><img src={gl_logo} alt={"github icon"} /></a>
                     <a href={"https://www.linkedin.com/in/junwoo-park-2b55a6178/"}><img src={li_logo} alt={"linkedin icon"} /></a>
                 </div>
             </section>
