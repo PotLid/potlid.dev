@@ -1,15 +1,13 @@
 @import './src/presets/varialbes';
 @import './src/presets/common';
+
 // Footer Base
 .-footer-base {
-  //background-color: $APP_BG_03;
   background-color: $dd-color-03;
   box-sizing: border-box;
   min-width: $MOBILE_MIN_WIDTH;
   width: 100%;
   z-index: $FOOTER_IDX;
-  // TEST
-  //@include tempFooterLine;
 }
 
 // Section Icon
@@ -27,8 +25,8 @@
 
   & > a {
     display: block;
-    min-width: 30px;
-    min-height: 30px;
+    min-width: 1.875rem;
+    min-height: 1.875rem;
     transition: .3s ease all;
   }
 
@@ -37,8 +35,13 @@
     opacity: 0.7;
   }
 
-  & img {
+  & svg {
     height: 100%;
+  }
+
+  & svg *{
+    //fill: $dd-color-02!important;
+    fill: $dd-color-text!important;
   }
 }
 
@@ -48,7 +51,6 @@
   max-width: 90%;
 
   & > p {
-    //color: $APP_COL_01;
     color: $dd-color-text;
     text-align: center;
     font-weight: $Thin;
@@ -57,17 +59,17 @@
 
 @media only screen and (min-width: 0px) and (max-width: $MOBILE_MAX_WIDTH) {
   .-footer-base {
-    padding: 20px 0;
+    padding: 1.25rem 0;
   }
   .-section-icon {
-    margin-bottom: 14px;
+    margin-bottom: 0.875rem;
   }
   .-icons-box {
-    max-width: 280px;
+    max-width: 17.5rem;
 
     & > a {
-      width: 44px;
-      height: 44px;
+      width: 2.75rem;
+      height: 2.75rem;
     }
   }
   .-section-cr {
@@ -79,17 +81,17 @@
 
 @media only screen and (min-width: $TABLET_MIN_WIDTH) and (max-width: $TABLET_MAX_WIDTH) {
   .-footer-base {
-    padding: 40px 0;
+    padding: 2.5rem 0;
   }
   .-section-icon {
-    margin-bottom: 18px;
+    margin-bottom: 1.125rem;
   }
   .-icons-box {
-    max-width: 320px;
+    max-width: 20rem;
 
     & > a {
-      width: 50px;
-      height: 50px;
+      width: 3.125rem;
+      height: 3.125rem;
     }
   }
   .-section-cr {
@@ -101,10 +103,10 @@
 
 @media only screen and (min-width: $PC_MIN_WIDTH) {
   .-footer-base {
-    padding: 60px 0;
+    padding: 3.75rem 0;
   }
   .-section-icon {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
   .-section-icon,
   .-section-cr {
@@ -112,11 +114,11 @@
   }
 
   .-icons-box {
-    max-width: 360px;
+    max-width: 22.5rem;
 
     & > a {
-      width: 60px;
-      height: 60px;
+      width: 3.75rem;
+      height: 3.75rem;
     }
   }
   .-section-cr {
