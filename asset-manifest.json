@@ -1,25 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.3d159823.chunk.css",
-    "main.js": "/static/js/main.e727a167.chunk.js",
-    "main.js.map": "/static/js/main.e727a167.chunk.js.map",
+    "main.css": "/static/css/main.259eb8da.chunk.css",
+    "main.js": "/static/js/main.b78a2fac.chunk.js",
+    "main.js.map": "/static/js/main.b78a2fac.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.11fd430a.js",
     "runtime-main.js.map": "/static/js/runtime-main.11fd430a.js.map",
     "static/js/2.7d8e76c1.chunk.js": "/static/js/2.7d8e76c1.chunk.js",
     "static/js/2.7d8e76c1.chunk.js.map": "/static/js/2.7d8e76c1.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.3d159823.chunk.css.map": "/static/css/main.3d159823.chunk.css.map",
+    "static/css/main.259eb8da.chunk.css.map": "/static/css/main.259eb8da.chunk.css.map",
     "static/js/2.7d8e76c1.chunk.js.LICENSE.txt": "/static/js/2.7d8e76c1.chunk.js.LICENSE.txt",
-    "static/media/github_logo.9eac6699.svg": "/static/media/github_logo.9eac6699.svg",
-    "static/media/gitlab_logo.eadd9fa2.svg": "/static/media/gitlab_logo.eadd9fa2.svg",
-    "static/media/linkedin-icon-1.04c2e21a.svg": "/static/media/linkedin-icon-1.04c2e21a.svg",
     "static/media/potlid_header_logo.62d44c9a.svg": "/static/media/potlid_header_logo.62d44c9a.svg",
     "static/media/potlid_menu_logo.c202bd39.svg": "/static/media/potlid_menu_logo.c202bd39.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.11fd430a.js",
     "static/js/2.7d8e76c1.chunk.js",
-    "static/css/main.3d159823.chunk.css",
-    "static/js/main.e727a167.chunk.js"
+    "static/css/main.259eb8da.chunk.css",
+    "static/js/main.b78a2fac.chunk.js"
   ]
 }
