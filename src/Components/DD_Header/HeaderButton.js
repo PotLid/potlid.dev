@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ButtonDD = props => {
+const HeaderButton = props => {
     return (
         <button className={"dd-header-btn"} onClick={props.onClick}>
                             <span className={"dd-header-btn-lip top"}>
@@ -16,4 +16,4 @@ const ButtonDD = props => {
     );
 };
 
-export default ButtonDD;
+export default HeaderButton;

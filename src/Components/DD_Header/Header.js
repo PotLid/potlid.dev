@@ -9,7 +9,7 @@ import './Header.scss';
 import headerLogo from './images/potlid_header_logo.svg';
 import menuLogo from './images/potlid_menu_logo.svg';
 
-import ButtonDD from "./ButtonDD";
+import HeaderButton from "./HeaderButton";
 
 class Header extends Component {
     static propTypes = {
@@ -74,101 +74,6 @@ class Header extends Component {
         this.removeScrollEvents();
         // touch detect related
         this.removeTouchDetectListeners();
-    }
-
-    render() {
-        const {isHeaderActive, isHeaderHide, isHeaderAway, isHeaderBackgroundInit, isMenuLoading} = this.state;
-        const {headerHide, location} = this.props;
-        // freeze body element
-        isHeaderActive ? document.body.classList.add('--dd-header-freezeScroll') : document.body.classList.remove('--dd-header-freezeScroll');
-        // header settings
-        // Don't forget the white space
-        let headerClass = "dd-header";
-        if (isHeaderActive) headerClass += " --dd-header-active";
-        if (!headerHide) headerClass += " --dd-hide-default";
-        if (headerHide && isHeaderHide) headerClass += " --dd-hide-onscroll";
-        if (isHeaderAway) headerClass += " --dd-away-onscroll";
-        if (isHeaderBackgroundInit) headerClass += " --dd-header-bg-init";
-        // header menu settings
-        // let menuClass = "dd-header-menu --dd-header-loading";
-        let menuClass = "dd-header-menu";
-        if (isHeaderActive) menuClass += " --dd-header-active";
-        if (isMenuLoading) menuClass += " --dd-header-loading"
-        return (
-            <React.Fragment>
-                <header className={headerClass} onTransitionEndCapture={this.headerTransitionHandler}>
-                    <span className={"dd-header-bg"}/>
-                    <nav className={"dd-header-wrap"}>
-                        <div className={"dd-logo-wrap"}>
-                            <Link to={"/"}>
-                                <img src={headerLogo} alt={"dd-header-logo"}/>
-                            </Link>
-                        </div>
-                        <ButtonDD onClick={this.menuActiveHandler}/>
-                    </nav>
-                    <div className={menuClass} onTransitionEnd={this.menuLoadingHandler}>
-                        <span className={"dd-header-menu-padding"}/>
-                        <ul className={"dd-header-menu-list"}>
-                            <li className={"dd-menu-logo-wrap"}>
-                                <Link to={"/"} onClick={this.menuActiveHandler}>
-                                    <img src={menuLogo} alt={"dd-header-logo in menu opened"}/>
-                                </Link>
-                            </li>
-                            <li className={"dd-header-menu-item"}>
-                                <span className={"dd-header-menu-item-wrap"}>
-                                <NavLink to={"/about"} activeClassName={"dd-item-active"}
-                                         onClick={this.menuActiveHandler}>
-                                    About
-                                </NavLink>
-                                </span>
-                            </li>
-                            <li className={"dd-header-menu-item"}>
-                                <span className={"dd-header-menu-item-wrap"}>
-                                <NavLink to={"/work"} activeClassName={"dd-item-active"}
-                                         onClick={this.menuActiveHandler}>
-                                    Works
-                                </NavLink>
-                                </span>
-                                <ul className={"dd-header-sub-menu-list"}>
-                                    <li className={"dd-header-sub-menu-item"}>
-                                        <NavLink to={"/work/web"} activeClassName={"dd-sub-item-active"}
-                                                 onClick={this.menuActiveHandler}>
-                                            Web / App
-                                        </NavLink>
-                                    </li>
-                                    {/*<li className={"dd-header-sub-menu-item"}>*/}
-                                    {/*    <NavLink to={"/work/design"} activeClassName={"dd-sub-item-active"}*/}
-                                    {/*             onClick={this.menuActiveHandler}>*/}
-                                    {/*        Design*/}
-                                    {/*    </NavLink>*/}
-                                    {/*</li>*/}
-                                    {/*<li className={"dd-header-sub-menu-item"}>*/}
-                                    {/*    <NavLink to={"/work/video"} activeClassName={"dd-sub-item-active"}*/}
-                                    {/*             onClick={this.menuActiveHandler}>*/}
-                                    {/*        Video Promotion*/}
-                                    {/*    </NavLink>*/}
-                                    {/*</li>*/}
-                                    {/*<li className={"dd-header-sub-menu-item"}>*/}
-                                    {/*    <NavLink to={"/work/marketing"} activeClassName={"dd-sub-item-active"}*/}
-                                    {/*             onClick={this.menuActiveHandler}>*/}
-                                    {/*        Marketing*/}
-                                    {/*    </NavLink>*/}
-                                    {/*</li>*/}
-                                </ul>
-                            </li>
-                            <li className={"dd-header-menu-item"}>
-                                <span className={"dd-header-menu-item-wrap"}>
-                                <NavLink to={"/contact"} activeClassName={"dd-item-active"}
-                                         onClick={this.menuActiveHandler}>
-                                    Contact
-                                </NavLink>
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                </header>
-            </React.Fragment>
-        );
     }
     // ScrollToTop + MenuActiveHandler
     menuActiveScrollTop() {
@@ -320,6 +225,101 @@ class Header extends Component {
     removeScrollEvents() {
         document.removeEventListener('scroll', this.menuHideOnscroll);
         document.removeEventListener('scroll', this.menuAwayOnscroll);
+    }
+
+    render() {
+        const {isHeaderActive, isHeaderHide, isHeaderAway, isHeaderBackgroundInit, isMenuLoading} = this.state;
+        const {headerHide, location} = this.props;
+        // freeze body element
+        isHeaderActive ? document.body.classList.add('--dd-header-freezeScroll') : document.body.classList.remove('--dd-header-freezeScroll');
+        // header settings
+        // Don't forget the white space
+        let headerClass = "dd-header";
+        if (isHeaderActive) headerClass += " --dd-header-active";
+        if (!headerHide) headerClass += " --dd-hide-default";
+        if (headerHide && isHeaderHide) headerClass += " --dd-hide-onscroll";
+        if (isHeaderAway) headerClass += " --dd-away-onscroll";
+        if (isHeaderBackgroundInit) headerClass += " --dd-header-bg-init";
+        // header menu settings
+        // let menuClass = "dd-header-menu --dd-header-loading";
+        let menuClass = "dd-header-menu";
+        if (isHeaderActive) menuClass += " --dd-header-active";
+        if (isMenuLoading) menuClass += " --dd-header-loading"
+        return (
+            <React.Fragment>
+                <header className={headerClass} onTransitionEndCapture={this.headerTransitionHandler}>
+                    <span className={"dd-header-bg"}/>
+                    <nav className={"dd-header-wrap"}>
+                        <div className={"dd-logo-wrap"}>
+                            <Link to={"/"}>
+                                <img src={headerLogo} alt={"dd-header-logo"}/>
+                            </Link>
+                        </div>
+                        <HeaderButton onClick={this.menuActiveHandler}/>
+                    </nav>
+                    <div className={menuClass} onTransitionEnd={this.menuLoadingHandler}>
+                        <span className={"dd-header-menu-padding"}/>
+                        <ul className={"dd-header-menu-list"}>
+                            <li className={"dd-menu-logo-wrap"}>
+                                <Link to={"/"} onClick={this.menuActiveHandler}>
+                                    <img src={menuLogo} alt={"dd-header-logo in menu opened"}/>
+                                </Link>
+                            </li>
+                            <li className={"dd-header-menu-item"}>
+                                <span className={"dd-header-menu-item-wrap"}>
+                                <NavLink to={"/about"} activeClassName={"dd-item-active"}
+                                         onClick={this.menuActiveHandler}>
+                                    About
+                                </NavLink>
+                                </span>
+                            </li>
+                            <li className={"dd-header-menu-item"}>
+                                <span className={"dd-header-menu-item-wrap"}>
+                                <NavLink to={"/work"} activeClassName={"dd-item-active"}
+                                         onClick={this.menuActiveHandler}>
+                                    Works
+                                </NavLink>
+                                </span>
+                                <ul className={"dd-header-sub-menu-list"}>
+                                    <li className={"dd-header-sub-menu-item"}>
+                                        <NavLink to={"/work/web"} activeClassName={"dd-sub-item-active"}
+                                                 onClick={this.menuActiveHandler}>
+                                            Web / App
+                                        </NavLink>
+                                    </li>
+                                    {/*<li className={"dd-header-sub-menu-item"}>*/}
+                                    {/*    <NavLink to={"/work/design"} activeClassName={"dd-sub-item-active"}*/}
+                                    {/*             onClick={this.menuActiveHandler}>*/}
+                                    {/*        Design*/}
+                                    {/*    </NavLink>*/}
+                                    {/*</li>*/}
+                                    {/*<li className={"dd-header-sub-menu-item"}>*/}
+                                    {/*    <NavLink to={"/work/video"} activeClassName={"dd-sub-item-active"}*/}
+                                    {/*             onClick={this.menuActiveHandler}>*/}
+                                    {/*        Video Promotion*/}
+                                    {/*    </NavLink>*/}
+                                    {/*</li>*/}
+                                    {/*<li className={"dd-header-sub-menu-item"}>*/}
+                                    {/*    <NavLink to={"/work/marketing"} activeClassName={"dd-sub-item-active"}*/}
+                                    {/*             onClick={this.menuActiveHandler}>*/}
+                                    {/*        Marketing*/}
+                                    {/*    </NavLink>*/}
+                                    {/*</li>*/}
+                                </ul>
+                            </li>
+                            <li className={"dd-header-menu-item"}>
+                                <span className={"dd-header-menu-item-wrap"}>
+                                <NavLink to={"/contact"} activeClassName={"dd-item-active"}
+                                         onClick={this.menuActiveHandler}>
+                                    Contact
+                                </NavLink>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+            </React.Fragment>
+        );
     }
 }
 
