@@ -218,12 +218,12 @@ class Header extends Component {
 
     // Manage Event Handlers
     attachScrollEvents() {
-        document.addEventListener('scroll', this.menuHideOnscroll);
+        // document.addEventListener('scroll', this.menuHideOnscroll);
         document.addEventListener('scroll', this.menuAwayOnscroll);
     }
 
     removeScrollEvents() {
-        document.removeEventListener('scroll', this.menuHideOnscroll);
+        // document.removeEventListener('scroll', this.menuHideOnscroll);
         document.removeEventListener('scroll', this.menuAwayOnscroll);
     }
 
