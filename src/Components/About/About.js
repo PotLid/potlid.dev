@@ -7,9 +7,15 @@ const About = props => {
 
     const [state, setState] = useState(initialState);
 
+    useEffect(() => {
+
+    }, []);
+
     return (
         <div>
-
+            <h1>About Page Temp</h1>
         </div>
     );
 }
+
+export default About;
