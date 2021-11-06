@@ -219,9 +219,10 @@ html, body {
   z-index: $header-menu-idx; // 6
   overflow-y: auto; // enable scroll
   // dev
-  background: rgba(255, 255, 255, 0.84);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  //background: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
   -webkit-transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), -webkit-backdrop-filter .2s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1);
   transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), backdrop-filter .2s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1);
 }
@@ -765,6 +766,10 @@ html, body {
 // Hover color change
 // Temp
 .dd-header-no-touch .dd-header-btn:hover .dd-header-btn-span{
+  background-color: $dd-color-text;
+  transition: .3s ease;
+}
+.dd-header-no-touch .--dd-header-active .dd-header-btn:hover .dd-header-btn-span{
   background-color: $dd-color-02;
   transition: .3s ease;
 }

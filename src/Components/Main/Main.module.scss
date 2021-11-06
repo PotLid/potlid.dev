@@ -1,9 +1,13 @@
 @import './src/presets/varialbes';
+@import './src/presets/common';
+
 .-main-base {
   min-width: $MOBILE_MIN_WIDTH;
   box-sizing: border-box;
   width: 100%;
   position: relative;
+
+  background: linear-gradient(180deg, $dd-color-02 0%, $dd-color-04 31%, $dd-color-05 55%, $dd-color-03 71%, $dd-color-01 100%);
 }
 
 .-sticky-box {
@@ -26,6 +30,17 @@
   left: 0;
   right: 0;
   margin: auto;
+  text-align: center;
+
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $dd-color-text;
+}
+
+.-title-box h1{
+  font-size: 3rem;
 }
 
 @media only screen and (min-width: 0px) and (max-width: $MOBILE_MAX_WIDTH) {
@@ -46,7 +61,7 @@
     //background-size: cover;
   }
   .-title-box {
-    max-width: 400px;
-    top: 500px;
+    //max-width: 400px;
+    //top: 50%;
   }
 }

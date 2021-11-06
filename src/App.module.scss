@@ -1,6 +1,11 @@
-@import './presets/varialbes';
+//@import './presets/varialbes';
+@import './presets/_common.scss';
 
 // Root fontsize 16px (using rem)
 html {
   font-size: 16px;
+}
+
+html, body {
+  //background-color: $dd-color-text;
 }

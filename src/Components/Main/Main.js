@@ -60,14 +60,16 @@ const Main = () => {
         >
             <section
                 className={styles['-sticky-box']}
-                style={{"height": `${state.windowHeight}px`}}
+                style={{
+                    "height": `${state.windowHeight}px`,
+                }}
                 ref={stickySection}
             >
                 <div className={styles['-title-box']}>
-                    <h1>PotLid's Recent Projects</h1>
-                    <p>Screen Height {state.windowHeight}</p>
-                    <p>Scroll Progress {state.progress}</p>
-                    <p>Currently under construction</p>
+                    <h1>OOPS! Under Renovation! 😜</h1>
+                    {/*<p>Screen Height {state.windowHeight}</p>*/}
+                    {/*<p>Scroll Progress {state.progress}</p>*/}
+                    {/*<p>Currently under construction</p>*/}
                 </div>
             </section>
         </div>
