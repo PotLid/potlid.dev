@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.fde31920.chunk.css",
+    "main.css": "/static/css/main.7dd59899.chunk.css",
     "main.js": "/static/js/main.5f6a81db.chunk.js",
     "main.js.map": "/static/js/main.5f6a81db.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.11fd430a.js",
@@ -8,7 +8,7 @@
     "static/js/2.e817bd51.chunk.js": "/static/js/2.e817bd51.chunk.js",
     "static/js/2.e817bd51.chunk.js.map": "/static/js/2.e817bd51.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.fde31920.chunk.css.map": "/static/css/main.fde31920.chunk.css.map",
+    "static/css/main.7dd59899.chunk.css.map": "/static/css/main.7dd59899.chunk.css.map",
     "static/js/2.e817bd51.chunk.js.LICENSE.txt": "/static/js/2.e817bd51.chunk.js.LICENSE.txt",
     "static/media/potlid_header_logo.62d44c9a.svg": "/static/media/potlid_header_logo.62d44c9a.svg",
     "static/media/potlid_menu_logo.c202bd39.svg": "/static/media/potlid_menu_logo.c202bd39.svg"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.11fd430a.js",
     "static/js/2.e817bd51.chunk.js",
-    "static/css/main.fde31920.chunk.css",
+    "static/css/main.7dd59899.chunk.css",
     "static/js/main.5f6a81db.chunk.js"
   ]
 }
