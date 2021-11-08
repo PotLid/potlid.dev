@@ -8,7 +8,7 @@ import {action_app_loaded, action_app_loading} from "./Redux/actions/AppActions"
 // import styles from './App.module.scss';
 import './App.module.scss';
 
-import Header from "./Components/DD_Header/Header"
+import Header from "./Components/Header/Header"
 import Footer from "./Components/Footer/Footer";
 import Main from "./Components/Main/Main";
 import About from "./Components/About/About";
