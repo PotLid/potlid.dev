@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "./static/css/main.63cd2680.chunk.css",
-    "main.js": "./static/js/main.ce39dba5.chunk.js",
-    "main.js.map": "./static/js/main.ce39dba5.chunk.js.map",
+    "main.js": "./static/js/main.0e13f8aa.chunk.js",
+    "main.js.map": "./static/js/main.0e13f8aa.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.55801e61.js",
     "runtime-main.js.map": "./static/js/runtime-main.55801e61.js.map",
-    "static/js/2.4b89a411.chunk.js": "./static/js/2.4b89a411.chunk.js",
-    "static/js/2.4b89a411.chunk.js.map": "./static/js/2.4b89a411.chunk.js.map",
+    "static/js/2.9be129f2.chunk.js": "./static/js/2.9be129f2.chunk.js",
+    "static/js/2.9be129f2.chunk.js.map": "./static/js/2.9be129f2.chunk.js.map",
     "index.html": "./index.html",
     "static/css/main.63cd2680.chunk.css.map": "./static/css/main.63cd2680.chunk.css.map",
-    "static/js/2.4b89a411.chunk.js.LICENSE.txt": "./static/js/2.4b89a411.chunk.js.LICENSE.txt",
+    "static/js/2.9be129f2.chunk.js.LICENSE.txt": "./static/js/2.9be129f2.chunk.js.LICENSE.txt",
     "static/media/potlid_header_logo.62d44c9a.svg": "./static/media/potlid_header_logo.62d44c9a.svg",
     "static/media/potlid_menu_logo.c202bd39.svg": "./static/media/potlid_menu_logo.c202bd39.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.55801e61.js",
-    "static/js/2.4b89a411.chunk.js",
+    "static/js/2.9be129f2.chunk.js",
     "static/css/main.63cd2680.chunk.css",
-    "static/js/main.ce39dba5.chunk.js"
+    "static/js/main.0e13f8aa.chunk.js"
   ]
 }
