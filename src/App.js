@@ -1,11 +1,10 @@
 import React, {useEffect, useCallback} from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Route, Switch} from 'react-router';
-import {BrowserRouter as Router, Redirect} from "react-router-dom";
+import {HashRouter as Router, Redirect} from "react-router-dom";
 
-import {action_app_loaded, action_app_loading} from "./Redux/actions/AppActions";
+import {action_app_loaded} from "./Redux/actions/AppActions";
 
-// import styles from './App.module.scss';
 import './App.module.scss';
 
 import Header from "./Components/Header/Header"
@@ -18,9 +17,6 @@ import NotFound from "./Components/404Page/NotFound";
 
 const App = () => {
     const stableDispatch = useCallback(useDispatch(), []);
-    const appObj = useSelector(state => state.app);
-
-    const {isAppLoaded, isAppLoading, isHeaderActive} = appObj;
 
     useEffect(() => {
         stableDispatch(action_app_loaded())
@@ -28,12 +24,12 @@ const App = () => {
 
     let routes = (
         <Switch>
-            <Route exact path={"/"} render={()=> <Main/> }/>
-            <Redirect to={"/"} />
-            <Route exact path={"/about"} render={() => <About/>} />
-            <Route exact path={"/works"} render={() => <Works/>} />
-            <Route exact path={"/contact"} render={() => <Contact/>} />
-            <Route path={"*"} render={() => <NotFound/>} />
+            <Route path={"/"} exact component={Main} />
+            <Redirect to="/" />
+            <Route path={"/about"} component={About}/>
+            <Route path={"/works"} component={Works} />
+            <Route path={"/contact"} component={Contact} />
+            <Route path={"*"} component={NotFound} />
         </Switch>
     )
 
